@@ -1,4 +1,5 @@
 import React from 'react';
+import { getDisplayCondition } from '../../utils/helper';
 
 interface WeatherConditionCardProps {
     condition: string;
@@ -6,30 +7,8 @@ interface WeatherConditionCardProps {
 }
 
 const WeatherConditionCard: React.FC<WeatherConditionCardProps> = ({ condition, iconCode }) => {
-    const getDisplayCondition = (condition: string): string => {
-        const conditionMap: Record<string, string> = {
-            'thunderstorm': 'thunderstorming',
-            'drizzle': 'drizzling',
-            'rain': 'raining',
-            'snow': 'snowing',
-            'clouds': 'cloudy',
-            'mist': 'misty',
-            'smoke': 'smoky',
-            'haze': 'hazy',
-            'dust': 'dusty',
-            'fog': 'foggy',
-            'sand': 'sandy',
-            'ash': 'ashy',
-            'squall': 'squally',
-            'tornado': 'a tornado',
-            'clear': 'clear out'
-        };
-
-        return conditionMap[condition.toLowerCase()] || condition;
-    };
-
     return (
-        <div className="relative flex flex-col w-fit">
+        <div className="relative flex flex-col w-fit min-w-45 sm:min-w-69">
             <div className="text-4xl sm:text-6xl">
                 <p>It's</p>
                 <p>{getDisplayCondition(condition)}</p>
