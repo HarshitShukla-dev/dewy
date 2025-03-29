@@ -38,20 +38,26 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const removeRecentSearch = useCallback((index: number, e: React.MouseEvent) => {
         e.stopPropagation();
+        e.preventDefault();
         if (recentSearches) {
             setRecentSearches(recentSearches.filter((_, i) => i !== index));
+        }
+        const inputElement = containerRef.current?.querySelector('input');
+        if (inputElement) {
+            (inputElement as HTMLInputElement).focus();
         }
     }, [recentSearches, setRecentSearches]);
 
     const handleSearchItemClick = useCallback((search: string) => {
         setQuery(search);
         onSearch(search);
+        setIsOpen(false);
     }, [onSearch]);
 
     const showRecentSearches = isOpen && recentSearches && recentSearches.length > 0;
 
     return (
-        <div ref={containerRef} className={`relative mx-auto ${focused ? 'ml-5' : 'ml-44'} w-full sm:max-w-md transition-all duration-300`}>
+        <div ref={containerRef} className={`relative mx-auto ${focused ? 'ml-0' : 'ml-44'} w-full sm:max-w-md transition-all duration-300`}>
             <motion.div
                 className="flex items-center bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-700 rounded-full overflow-hidden transition-all"
                 initial={{ scale: 1 }}
@@ -74,6 +80,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 />
                 <button
                     onClick={handleSearch}
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
                     className="bg-zinc-300 hover:bg-zinc-400 dark:bg-zinc-700 dark:hover:bg-zinc-600 mr-1 sm:mr-0.5 p-1 rounded-full transition-colors"
                     aria-label="Submit search"
                 >
@@ -82,7 +90,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             </motion.div>
 
             <AnimatePresence>
-                {showRecentSearches && focused && (
+                {showRecentSearches && (
                     <RecentSearchesList
                         searches={recentSearches}
                         onItemClick={handleSearchItemClick}
