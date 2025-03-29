@@ -2,8 +2,21 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+@font-face {
+    font-family: 'mono';
+    src: url('/fonts/mono.ttf');
+}
+
+@font-face {
+    font-family: 'logo';
+    src: url('/fonts/logo.otf');
+}
+
 @theme {
     --color-background: #fff;
+
+    --font-mono: 'mono', monospace;
+    --font-logo: 'logo', sans-serif;
 }
 
 @layer base {

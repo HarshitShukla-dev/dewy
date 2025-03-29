@@ -1,13 +1,8 @@
-import ThemeToggle from './components/ThemeToggle'
-
+import Navbar from "./components/Navbar"
 function App() {
   return (
-    <div className="bg-background min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
-      <div className="mx-auto p-4 container">
-        <div className="flex justify-end">
-          <ThemeToggle />
-        </div>
-      </div>
+    <div className="flex flex-col bg-zinc-200 dark:bg-zinc-800 px-4 py-2 h-screen text-zinc-900 dark:text-zinc-100 transition-colors">
+      <Navbar />
     </div>
   )
 }
