@@ -10,7 +10,7 @@ interface RecentSearchesListProps {
 
 const RecentSearchesList: React.FC<RecentSearchesListProps> = ({ searches, onItemClick, onRemoveItem }) => (
     <motion.div
-        className="z-10 absolute bg-zinc-100 dark:bg-zinc-950 mt-1 sm:mt-2 border border-zinc-200 dark:border-zinc-700 rounded-lg w-full overflow-hidden"
+        className="z-20 absolute bg-zinc-100 dark:bg-zinc-950 mt-1 sm:mt-2 border border-zinc-200 dark:border-zinc-700 rounded-lg w-full overflow-hidden"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}

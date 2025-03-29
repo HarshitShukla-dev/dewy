@@ -7,17 +7,13 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const getSystemTheme = (): 'light' | 'dark' => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [theme, setTheme] = useState<'light' | 'dark'>(() => {
         const storedTheme = localStorage.getItem('theme');
         if (storedTheme === 'light' || storedTheme === 'dark') {
             return storedTheme;
         } else {
-            return getSystemTheme();
+            return 'light';
         }
     });
 
@@ -32,7 +28,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     useEffect(() => {
         const handleSystemThemeChange = (event: MediaQueryListEvent) => {
-            setTheme(event.matches ? 'dark' : 'light');
+            if (!localStorage.getItem('theme')) {
+                setTheme(event.matches ? 'dark' : 'light');
+            }
         };
 
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
