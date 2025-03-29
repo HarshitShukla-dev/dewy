@@ -1,6 +1,6 @@
 import { memo } from "react";
 import ThemeToggle from "./ThemeToggle";
-import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
 
 const Navbar = () => {
     return (
