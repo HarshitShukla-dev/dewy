@@ -66,7 +66,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
             >
                 <Search
                     className="flex-shrink-0 ml-2 sm:ml-3 w-4 h-4 text-zinc-500 dark:text-zinc-400"
-                    onClick={() => setIsOpen(true)}
+                    onClick={()=>setFocused(true)}
                 />
                 <input
                     type="text"

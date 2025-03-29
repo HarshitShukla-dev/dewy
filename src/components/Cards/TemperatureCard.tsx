@@ -7,7 +7,7 @@ interface TemperatureCardProps {
 
 const TemperatureCard: React.FC<TemperatureCardProps> = ({
     temperature,
-    unit = 'C'
+    unit = 'C',
 }) => {
     return (
         <div className="relative flex cursor-default">

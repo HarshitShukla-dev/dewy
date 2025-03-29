@@ -26,7 +26,7 @@ const MainSection: FC<MainSectionProps> = ({
     state,
     country,
     humidity,
-    windSpeed
+    windSpeed,
 }) => {
     return (
         <main className="relative flex flex-col flex-1 justify-between px-5 sm:px-12 py-4 sm:py-8 overflow-hidden">
