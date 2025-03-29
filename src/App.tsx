@@ -93,7 +93,7 @@ function App() {
             condition={weatherData.weather[0]?.main}
             temperature={Math.round(weatherData.main.temp)}
             iconCode={weatherData.weather[0]?.icon}
-            city={locationInfo.city || weatherData.name}
+            city={locationInfo.city?.normalize("NFD").replace(/[\u0300-\u036f]/g, "") || weatherData.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
             state={locationInfo.state || weatherData.sys?.country}
             country={locationInfo.country || weatherData.sys.country}
             humidity={weatherData.main.humidity}
