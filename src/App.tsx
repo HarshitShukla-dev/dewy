@@ -52,7 +52,7 @@ function App() {
     } else {
       fetchWeatherData({ city: 'Delhi' });
     }
-  }, [geolocation.latitude, geolocation.longitude, fetchWeatherData]);
+  }, [geolocation.latitude, geolocation.longitude);
 
   useEffect(() => {
     if (!weatherData?.coord) return;
