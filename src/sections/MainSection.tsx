@@ -29,7 +29,7 @@ const MainSection: FC<MainSectionProps> = ({
     windSpeed,
 }) => {
     return (
-        <main className="relative flex flex-col flex-1 justify-between px-5 sm:px-12 py-4 sm:py-8 overflow-hidden">
+        <main className="relative flex flex-col flex-1 justify-between px-5 sm:px-12 py-4 sm:py-8 min-h-[94dvh] sm:min-h-[92dvh] overflow-hidden">
             <motion.div
                 className={`top-1/2 z-0 absolute self-center ${getBackgroundColor(condition)} blur-[200px] rounded-full w-[90vw] h-[90vw]`}
                 initial={{ opacity: 0 }}
