@@ -50,8 +50,8 @@ function App() {
     const { latitude, longitude } = geolocation;
     if (latitude && longitude) {
       fetchWeatherData({ lat: latitude, lon: longitude });
-    } else if (recentSearches.length > 0) {
-      fetchWeatherData({ city: recentSearches[0].toString() });
+    } else if (recentSearches[0].length > 0) {
+      fetchWeatherData({ city: recentSearches[0][0].toString() });
     } else {
       fetchWeatherData({ city: 'Delhi' });
     }

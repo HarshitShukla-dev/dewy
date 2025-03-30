@@ -8,7 +8,6 @@ const GEO_BASE_URL = 'https://api.openweathermap.org/geo/1.0/reverse';
 const FORECAST_BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 
 export const fetchWeather = async ({ city, lat, lon }: FetchWeatherProps): Promise<WeatherResponse> => {
-    console.log(API_KEY);
     try {
         if (!city && (!lat || !lon)) {
             throw new Error('City name or coordinates are required to fetch weather data.');
