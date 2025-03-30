@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Navbar from "./components/Navbar";
 import MainSection from "./sections/MainSection";
-import { useGeolocation } from "@uidotdev/usehooks";
+import { useGeolocation, useLocalStorage } from "@uidotdev/usehooks";
 import { fetchWeather, fetchCityStateCountry, fetchForecast } from './utils/fetchWeather';
 import { WeatherResponse } from './types/weather';
 import { ForecastResponse } from './types/forecast';
@@ -16,6 +16,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [locationInfo, setLocationInfo] = useState<{ city?: string; state?: string; country?: string } | null>(null);
   const geolocation = useGeolocation();
+  const recentSearches = useLocalStorage<string[]>("recentSearches", []);
 
   const fetchWeatherData = useCallback(async (params: { lat?: number; lon?: number; city?: string }) => {
     setWeatherData(null);
@@ -49,10 +50,12 @@ function App() {
     const { latitude, longitude } = geolocation;
     if (latitude && longitude) {
       fetchWeatherData({ lat: latitude, lon: longitude });
+    } else if (recentSearches.length > 0) {
+      fetchWeatherData({ city: recentSearches[0].toString() });
     } else {
       fetchWeatherData({ city: 'Delhi' });
     }
-  }, [geolocation.latitude, geolocation.longitude);
+  }, [geolocation.latitude, geolocation.longitude]);
 
   useEffect(() => {
     if (!weatherData?.coord) return;
