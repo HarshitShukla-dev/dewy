@@ -81,7 +81,6 @@ export const fetchForecast = async ({ city, lat, lon }: FetchWeatherProps): Prom
         } else {
             url = `${FORECAST_BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`;
         }
-        console.log(url);
         const response = await axios.get<ForecastResponse>(url);
 
         if (response.status !== 200) {

@@ -24,13 +24,20 @@ function App() {
     setError(null);
 
     try {
-      const [data, forecast] = await Promise.all([
+      const results = await Promise.allSettled([
         fetchWeather(params),
         fetchForecast(params)
       ]);
 
-      setWeatherData(data);
-      setForecastData(forecast);
+      if (results[0].status === 'fulfilled') {
+        setWeatherData(results[0].value);
+      } else {
+        setError(results[0].reason?.message || 'Failed to fetch weather data.');
+      }
+
+      if (results[1].status === 'fulfilled') {
+        setForecastData(results[1].value);
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to fetch weather data.');
     } finally {
