@@ -15,14 +15,12 @@ A modern and responsive weather dashboard web application built with React.js.
 
 ## Demo Video
 
-![Demo](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6HqFltlsUt2Z5pI6Fi7hVOvobXwQLlfyc9KmCP)
+![Demo](/assets/demo.gif)
 
 ## ScreenShots
-![1](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6HcHeAELqEAIU61ePuJoiQqljhwYLz0WNfH57D)
-![2](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hek2b0ICC5bEnPaqRgTWm8xXFo34QZVl2tGuw)
-![3](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6H0iuHnVeufwLvX8xT27Szc5jBgKERrHA1bJpe)
-![4](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hyz5QzWcZwz7jhAXicOdMPHtEnxL1mNo68eYU)
+<img src="https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6HcHeAELqEAIU61ePuJoiQqljhwYLz0WNfH57D" width="300px"> <img src="https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hek2b0ICC5bEnPaqRgTWm8xXFo34QZVl2tGuw" width="300px">
 
+<img src="https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6H0iuHnVeufwLvX8xT27Szc5jBgKERrHA1bJpe" width="300px"> <img src="https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hyz5QzWcZwz7jhAXicOdMPHtEnxL1mNo68eYU" width="300px">
 
 ## Setup Instructions
 
