@@ -130,7 +130,7 @@ const FiveDayBroadcast: React.FC<FiveDayBroadcastProps> = ({ list }) => {
     }, [selectedDay, detailedForecast]);
 
     return (
-        <div className="flex flex-col bg-zinc-100/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-md p-6 rounded-xl min-h-dvh ">
+        <div className="flex flex-col bg-zinc-100/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-md p-6 rounded-xl min-h-dvh">
             <h2 className="mb-6 font-semibold text-xl tracking-tight">5-Day Forecast</h2>
 
             <div className="flex gap-2 mb-8 pb-2 overflow-x-auto">

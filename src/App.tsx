@@ -91,19 +91,21 @@ function App() {
       {error && <Error message={error} />}
 
       {weatherData && locationInfo && (
-        <MainSection
-          condition={weatherData.weather[0]?.main || ""}
-          temperature={Math.round(weatherData.main.temp)}
-          iconCode={weatherData.weather[0]?.icon || ""}
-          city={normalizeText(locationInfo.city) || normalizeText(weatherData.name) || ""}
-          state={locationInfo.state || weatherData.sys?.country || ""}
-          country={locationInfo.country || weatherData.sys.country || ""}
-          humidity={weatherData.main.humidity}
-          windSpeed={Math.round(weatherData.wind.speed * 3.6)}
-        />
+        <>
+          <MainSection
+            condition={weatherData.weather[0]?.main || ""}
+            temperature={Math.round(weatherData.main.temp)}
+            iconCode={weatherData.weather[0]?.icon || ""}
+            city={normalizeText(locationInfo.city) || normalizeText(weatherData.name) || ""}
+            state={locationInfo.state || weatherData.sys?.country || ""}
+            country={locationInfo.country || weatherData.sys.country || ""}
+            humidity={weatherData.main.humidity}
+            windSpeed={Math.round(weatherData.wind.speed * 3.6)}
+          />
+          <FiveDayBroadcast list={forecastData?.list || []} />
+        </>
       )}
 
-      <FiveDayBroadcast list={forecastData?.list || []} />
     </div>
   );
 }
