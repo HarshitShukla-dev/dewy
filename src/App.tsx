@@ -84,7 +84,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col bg-zinc-200 dark:bg-zinc-950 min-h-dvh overflow-hidden font-mono text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div className="flex flex-col bg-zinc-200 dark:bg-zinc-950 min-h-dvh overflow-hidden font-mono2 text-zinc-900 dark:text-zinc-100 transition-colors">
       <Navbar onSearch={handleSearch} />
 
       {loading && <Loading />}
@@ -105,7 +105,6 @@ function App() {
           <FiveDayBroadcast list={forecastData?.list || []} />
         </>
       )}
-
     </div>
   );
 }
