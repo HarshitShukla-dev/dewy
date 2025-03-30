@@ -13,6 +13,17 @@ A modern and responsive weather dashboard web application built with React.js.
 - **Icons:** Lucide React
 - **Hooks Library:** React Use, `@uidotdev/usehooks`
 
+## Demo Video
+
+![Demo](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6HqFltlsUt2Z5pI6Fi7hVOvobXwQLlfyc9KmCP)
+
+## ScreenShots
+![1](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6HcHeAELqEAIU61ePuJoiQqljhwYLz0WNfH57D)
+![2](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hek2b0ICC5bEnPaqRgTWm8xXFo34QZVl2tGuw)
+![3](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6H0iuHnVeufwLvX8xT27Szc5jBgKERrHA1bJpe)
+![4](https://c3zcjux6qs.ufs.sh/f/oKESAOMdpV6Hyz5QzWcZwz7jhAXicOdMPHtEnxL1mNo68eYU)
+
+
 ## Setup Instructions
 
 Follow these steps to run the project locally:
