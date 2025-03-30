@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# Dewy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive weather dashboard web application built with React.js.
 
-Currently, two official plugins are available:
+## Tech Stack Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** React.js
+- **Bundler:** Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **HTTP Client:** Axios
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Hooks Library:** React Use, `@uidotdev/usehooks`
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Follow these steps to run the project locally:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1.  **Clone the repository:**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ```bash
+    git clone [your repository URL]
+    cd Dewy
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **Install dependencies:**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Create `.env` file:**
+    Create a `.env` file in the root of your project and add your OpenWeatherMap API key:
+
+    ```
+    VITE_API_KEY=YOUR_OPENWEATHERMAP_API_KEY
+    ```
+
+    **Important:** Replace `YOUR_OPENWEATHERMAP_API_KEY` with your actual API key obtained from [https://openweathermap.org/api](https://openweathermap.org/api).
+
+4.  **Start the development server:**
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+    This will start the application on a local development server (usually `http://localhost:5173`).
+
+## API Integration Details
+
+This application integrates with the [OpenWeatherMap API](https://openweathermap.org/api) to fetch live weather information.
+
+- **API Used:**
+
+  - **Current Weather API:** To fetch the current weather conditions for a searched city.
+    - Endpoint: `https://api.openweathermap.org/data/2.5/weather`
+  - **3-hour forecast for 5 days API:** To retrieve the weather forecast for the next 5 days with 3-hour intervals.
+    - Endpoint: `https://api.openweathermap.org/data/2.5/forecast`
+  - **Reverse Geocoding API:** To get city, state, and country information based on latitude and longitude.
+    - Endpoint: `http://api.openweathermap.org/geo/1.0/reverse`
+
+- **API Key:** You need to register for a free API key on the OpenWeatherMap website ([https://openweathermap.org/api](https://openweathermap.org/api)). This key should be stored in a `.env` file as `VITE_API_KEY`. The application will then access this key through environment variables.
+
+- **Rate Limits (Free Tier):** This application utilizes the free tier of the OpenWeatherMap API, which has the following limitations:
+
+  - **60 API calls per minute**
+  - **1,000,000 API calls per month**
+    Please be mindful of these limits while using the application, especially during development and testing. Excessive requests might lead to temporary blocking of your API key.
+
+- **Units:** The application fetches weather data in Celsius (`units=metric` parameter is used in the API calls).
+
+- **HTTP Client:** The application uses the `axios` library to make HTTP requests to the OpenWeatherMap API.
+
+This `README.md` now includes the specific rate limits for the free tier of the OpenWeatherMap API. Remember to commit this file to your repository.
